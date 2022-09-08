@@ -9,4 +9,4 @@
 
 ## 效果
 
-![](assets/preview.mov)
+![](assets/preview.gif)
