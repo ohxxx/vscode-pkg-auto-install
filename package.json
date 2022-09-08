@@ -1,16 +1,16 @@
 {
-  "name": "xxx",
-  "displayName": "xxx",
+  "name": "pkg-auto-install",
+  "displayName": "Pkg Auto Install",
   "version": "0.0.0",
-  "description": "xxx for VS Code",
+  "description": "Pkg Auto Install for VS Code",
   "publisher": "xxxDeveloper",
-  "homepage": "https://github.com/xxxDeveloper/xxx#readme",
+  "homepage": "https://github.com/xxxDeveloper/vscode-pkg-auto-install#readme",
   "bugs": {
-    "url": "https://github.com/xxxDeveloper/xxx/issues"
+    "url": "https://github.com/xxxDeveloper/vscode-pkg-auto-install/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xxxDeveloper/xxx"
+    "url": "https://github.com/xxxDeveloper/vscode-pkg-auto-install"
   },
   "main": "./dist/extension.js",
   "files": [
