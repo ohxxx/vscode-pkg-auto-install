@@ -1,0 +1,1 @@
+# vscode-pkg-auto-install
