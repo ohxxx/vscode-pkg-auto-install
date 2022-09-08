@@ -30,7 +30,7 @@
       "properties": {}
     }
   },
-  "icon": "",
+  "icon": "assets/logo.png",
   "scripts": {
     "dev": "rm -rf dist && tsup --watch",
     "build": "tsup",
