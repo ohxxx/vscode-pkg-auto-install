@@ -1,7 +1,7 @@
 {
   "name": "pkg-auto-install",
   "displayName": "Pkg Auto Install",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Pkg Auto Install for VS Code",
   "publisher": "xxxDeveloper",
   "homepage": "https://github.com/xxxDeveloper/vscode-pkg-auto-install#readme",
