@@ -21,7 +21,7 @@
   ],
   "sideEffects": false,
   "engines": {
-    "vscode": "^1.66.2"
+    "vscode": "^1.71.0"
   },
   "contributes": {
     "commands": [],
