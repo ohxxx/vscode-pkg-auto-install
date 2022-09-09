@@ -15,17 +15,6 @@ const LOCKS: Record<TAGENTS, string> = {
 }
 
 export const activate = (_: ExtensionContext) => {
-  /**
-   * 实现思路：
-   *  1、触发条件文件保存并且当前文件是 package.json
-   *  2、获取当前的 agent
-   *  3、打开终端，执行 [agent] install
-   *
-   * TODOs:
-   *  1、精确到修改内容 dependencies、devDependencies 中被修改了才触发 install 命令
-   *  2、支持 install 中额外配置
-   *  3、（???）删除终端执行命令模式，直接在后台运行更新
-   */
   workspace.onDidSaveTextDocument((doc) => {
     const filePath = doc.fileName
     const fileName = path.basename(filePath)
