@@ -9,7 +9,7 @@
 
 ## 特性
 
-- 保存 package.json 后自动 `install`
+- 在 package.json 文件中修改 dependencies 或 devDependencies 后自动 `install`
 
 ## 效果
 
@@ -17,7 +17,6 @@
 
 ## TODOs
 
-- [ ] 精确 install 触发条件（dependencies、devDependencies 修改触发）
 - [ ] 支持 install 中额外配置（--force、–legacy-peer-deps...）
 - [ ] terminal 自动切换地址（monorepo 问题）
 - [ ] 支持 monorepo（pnpm、lerna）
