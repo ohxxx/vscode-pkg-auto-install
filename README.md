@@ -9,7 +9,11 @@
 
 ## 特性
 
-- 在 package.json 文件中修改 dependencies 或 devDependencies 后自动 `install`
+- 在 package.json 文件中修改后自动 `install`
+  - dependencies
+  - devDependencies
+  - peerDependencies
+- 支持 monorepo
 
 ## 效果
 
@@ -18,6 +22,4 @@
 ## TODOs
 
 - [ ] 支持 install 中额外配置（--force、–legacy-peer-deps...）
-- [ ] terminal 自动切换地址（monorepo 问题）
-- [ ] 支持 monorepo（pnpm、lerna）
 - [ ] （???）删除 terminal 模式，直接在后台运行更新 
