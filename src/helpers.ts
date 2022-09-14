@@ -37,11 +37,11 @@ export const getAgent = (cwd: string) => {
 }
 
 export const executeInstallCommand = (agent: TAGENTS, cwd: string) => {
-  const command = `${agent} install`
-  const terminals = window.terminals.find(terminal => terminal.name === 'auto install')
+  const command = `cd ${cwd} && ${agent} install`
+  const terminal = window.terminals.find(terminal => terminal.name === 'auto install')
 
-  if (terminals) {
-    terminals.sendText(command)
+  if (terminal) {
+    terminal.sendText(command)
   }
   else {
     const terminal = window.createTerminal({ name: 'auto install', cwd })
