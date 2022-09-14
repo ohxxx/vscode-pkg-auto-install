@@ -14,9 +14,10 @@ export const activate = (_: ExtensionContext) => {
       const packageJson = getPackageJson(cwd)
       const curDep = packageJson?.dependencies
       const curDevDep = packageJson?.devDependencies
+      const curPeerDep = packageJson?.peerDependencies
 
       if (!depStore.has(uri))
-        depStore.set(uri, { dep: curDep, devDep: curDevDep })
+        depStore.set(uri, { dep: curDep, devDep: curDevDep, peerDep: curPeerDep })
     }
   })
 
@@ -28,19 +29,28 @@ export const activate = (_: ExtensionContext) => {
       const packageJson = getPackageJson(cwd)
       const curDep = packageJson?.dependencies
       const curDevDep = packageJson?.devDependencies
+      const curPeerDep = packageJson?.peerDependencies
 
       const uri = (doc?.uri ?? '') as Uri
-      if (depStore.has(uri)) {
-        const { dep, devDep } = depStore.get(uri) || { dep: [], devDep: [] }
 
-        if (!isEqual(dep, curDep) || !isEqual(devDep, curDevDep)) {
-          executeInstallCommand(agent, cwd)
-          depStore.set(uri, { dep: curDep, devDep: curDevDep })
-        }
+      const executeUpdate = () => {
+        executeInstallCommand(agent, cwd)
+        depStore.set(uri, { dep: curDep, devDep: curDevDep, peerDep: curPeerDep })
+      }
+
+      if (depStore.has(uri)) {
+        const { dep, devDep, peerDep } = depStore.get(uri)
+          || { dep: [], devDep: [], peerDep: [] }
+
+        if (
+          !isEqual(dep, curDep)
+          || !isEqual(devDep, curDevDep)
+          || !isEqual(peerDep, curPeerDep)
+        )
+          executeUpdate()
       }
       else {
-        executeInstallCommand(agent, cwd)
-        depStore.set(uri, { dep: curDep, devDep: curDevDep })
+        executeUpdate()
       }
     }
   })

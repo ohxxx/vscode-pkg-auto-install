@@ -3,6 +3,7 @@ import type { Uri } from 'vscode'
 interface IDependency {
   dep: string[]
   devDep: string[]
+  peerDep: string[]
 }
 
 class DepStore {
