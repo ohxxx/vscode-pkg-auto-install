@@ -38,16 +38,28 @@ export const getAgent = (cwd: string) => {
 
 export const executeInstallCommand = (agent: TAGENTS, cwd: string) => {
   const command = `cd ${cwd} && ${agent} install`
-  const terminal = window.terminals.find(terminal => terminal.name === 'auto install')
-
-  if (terminal) {
-    terminal.sendText(command)
-  }
-  else {
-    const terminal = window.createTerminal({ name: 'auto install', cwd })
-    terminal.show()
-    terminal.sendText(command)
-  }
+  window.withProgress({
+    location: 15,
+    title: 'Installing dependencies...',
+    cancellable: false,
+  }, () => {
+    return new Promise<void>((resolve, reject) => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const child = require('child_process').exec(command, (error: Error) => {
+        if (error) {
+          window.showErrorMessage(`Failed to install dependencies: ${error.message}`)
+          reject(error)
+        }
+        else {
+          window.showInformationMessage('Successfully installed dependencies')
+          resolve()
+        }
+      })
+      child.stdout.on('data', (data: string) => {
+        console.warn(data)
+      })
+    })
+  })
 }
 
 export const isEqual = (a: unknown, b: unknown) => {

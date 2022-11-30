@@ -3,23 +3,17 @@
   <img src="./assets/logo.png" height="100">
 </h1>
 
-## 简介
+English | [`中文`](./README_ZH.md)
 
-自动执行 `install` 指令，无需手动打开命令行操作
+## Introduction
 
-## 特性
+Automatically execute the `install` command, no need to manually open the command line operation
 
-- 在 package.json 文件中修改后自动 `install`
-  - dependencies
-  - devDependencies
-  - peerDependencies
-- 支持 monorepo
+## Features
 
-## 效果
+- Automatically `install` after modification in package.json file
+- Support monorepo
+
+## Effect
 
 ![](assets/preview.gif)
-
-## TODOs
-
-- [ ] 支持 install 中额外配置（--force、–legacy-peer-deps...）
-- [ ] （???）删除 terminal 模式，直接在后台运行更新 
